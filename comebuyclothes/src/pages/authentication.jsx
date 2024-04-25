@@ -1,0 +1,1 @@
+//should have, 'sign in' component, 'sign up' component and 'forget password' component 
