@@ -1,4 +1,3 @@
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -8,8 +7,8 @@ import { Link } from "react-router-dom";
 
 
 
-const Navbar = () => {
-
+const Navbar = (props) => {
+const {cart} = props
 
   return (
     <div className="navbar">
@@ -17,13 +16,7 @@ const Navbar = () => {
         <div className="left">
 
           <div className="item">
-            <Link className ="link" to="/products/1">Cat 1</Link>
-          </div>
-          <div className="item">
-            <Link className ="link" to="/products/2">Cat 2</Link>
-          </div>
-          <div className="item">
-            <Link className ="link" to="/products/3">Cat 3</Link>
+            <Link className ="link" to="/listings">Shop</Link>
           </div>
         </div>
         <div className="center">
@@ -40,7 +33,7 @@ const Navbar = () => {
             <div className="cartIcon" >
                 <Link to="/ShoppingCart">
                     <ShoppingCartOutlinedIcon/>
-                    <span>0</span>
+                    <span>{cart.length}</span>
                     </Link>    
             </div>
           </div>
