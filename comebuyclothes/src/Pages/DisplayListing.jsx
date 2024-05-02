@@ -2,7 +2,7 @@ import { useState } from "react";
 import ListingItem from "../Components/ListingItem";
 
 function DisplayListing(props) {
-    const {addToCart} = props
+    const {addToCart, addToFavourites} = props
   const [availClothes, setAvailClothes] = useState([
     {
         id: 1,
@@ -37,7 +37,7 @@ function DisplayListing(props) {
           <div>
             <ListingItem clothes={clothes} />
             <button onClick={() => addToCart(clothes)}>Add to Cart</button>
-            <button>Add to Favourites</button>
+            <button onClick={() => addToFavourites(clothes)}>Add to Favourites</button>
           </div>
         );
       })}
