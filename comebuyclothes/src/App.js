@@ -13,7 +13,7 @@ import Stores from './Pages/Stores';
 
 
 function App() {
-  const [user,setUser] = useState (1) //to have a function getUser to see if the person is logged in, tagged to backend
+  const [user,setUser] = useState (null) //to have a function getUser to see if the person is logged in, tagged to backend
 
   const [cart, setCart] = useState([]);
 
@@ -46,7 +46,7 @@ function App() {
             <Route path='/ShoppingCart' element={<Cart cart={cart} removeFromCart={removeFromCart}/>}/>
             <Route path='/listings' element={<DisplayListing addToCart={addToCart} addToFavourites={addToFavourites} />} />
             <Route path='/Favourites' element={<Favourites favourites={favourites} addToCart={addToCart} removeFromFavourites={removeFromFavourites}/>}/>
-            <Route path='/Profile' element={<Profile/>}/>
+            <Route path='/Profile' element={<Profile user={user}/>}/>
             <Route path='/Stores' element={<Stores/>}/>
             </Routes>
         </Router>
