@@ -7,8 +7,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from './Components/Navbar';
 import { useState } from "react";
 import Favourites from './Pages/Favourites';
+import Profile from './Pages/Profile';
+import Stores from './Pages/Stores';
+
+
 
 function App() {
+  const [user,setUser] = useState (1) //to have a function getUser to see if the person is logged in, tagged to backend
+
   const [cart, setCart] = useState([]);
 
   const addToCart = (clothes) => {
@@ -33,17 +39,20 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      {user ? (<Router>
           <Navbar cart={cart}/>
-          <Favourites favourites={favourites} addToCart={addToCart} removeFromFavourites={removeFromFavourites}/>
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/ShoppingCart' element={<Cart cart={cart} removeFromCart={removeFromCart}/>}/>
             <Route path='/listings' element={<DisplayListing addToCart={addToCart} addToFavourites={addToFavourites} />} />
-            <Route path='/UserIdentification' element={<Authentication/>}/>
+            <Route path='/Favourites' element={<Favourites favourites={favourites} addToCart={addToCart} removeFromFavourites={removeFromFavourites}/>}/>
+            <Route path='/Profile' element={<Profile/>}/>
+            <Route path='/Stores' element={<Stores/>}/>
             </Routes>
         </Router>
-
+      ):(
+        <Authentication/>
+      )}
 
     </div>
   );

@@ -5,11 +5,8 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import "./Navbar.css"
 import { Link } from "react-router-dom";
 
-
-
 const Navbar = (props) => {
 const {cart} = props
-
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -24,12 +21,12 @@ const {cart} = props
         </div>
         <div className="right">
           <div className="item">
-            <Link className ="link" to="/">Stores</Link>
+            <Link className ="link" to="/Stores">Stores</Link>
           </div>
           <div className="icons">
             <SearchIcon/>
-            <PersonOutlineOutlinedIcon/>
-            <FavoriteBorderOutlinedIcon/>
+            <Link to="/Profile"><PersonOutlineOutlinedIcon/></Link>
+           <Link to="/Favourites"><FavoriteBorderOutlinedIcon/></Link> 
             <div className="cartIcon" >
                 <Link to="/ShoppingCart">
                     <ShoppingCartOutlinedIcon/>
