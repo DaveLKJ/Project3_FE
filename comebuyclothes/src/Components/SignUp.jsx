@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { signUp } from "../Utilities/users-api"
 
 function SignUp(){
     const [name, setName] = useState('')
@@ -17,11 +18,22 @@ function SignUp(){
         setPassword(evt.target.value)
         }
 
-    function handleSubmit(evt) {
+     async function handleSubmit(evt) {
             evt.preventDefault(); // prevent the default form submission behavior
             // to remove console.log and to send the sign up information to backend using SignUp API
             console.log(`Name: ${name}, Email: ${email}, Password: ${password}`);
-          }
+            const payload = {
+                name: name,
+            email: email,
+        password: password,}
+        console.log(payload)
+             try{
+                 await signUp(payload)
+             }
+             catch(error){
+console.log(error)
+             }
+           }
 
     return(
         <form onSubmit={handleSubmit}> 
