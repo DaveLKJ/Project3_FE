@@ -13,13 +13,20 @@ import Stores from './Pages/Stores';
 
 
 function App() {
-  const [user,setUser] = useState (null) //to have a function getUser to see if the person is logged in, tagged to backend
+
+  const [user,setUser] = useState ({name: 'latte', email:'latte@gmail.com'}) //to have a function getUser to see if the person is logged in, tagged to backend
 
   const [cart, setCart] = useState([]);
 
-  const addToCart = (clothes) => {
-    setCart([...cart, clothes]);
-  };
+ const addToCart = (clothes) => {
+  const existingItem = cart.find((item) => item.id === clothes.id);
+  if (existingItem) {
+    existingItem.quantity = Number(existingItem.quantity) + 1;
+    setCart([...cart]);
+  } else {
+    setCart([...cart, { ...clothes, quantity: 1 }]);
+  }
+};
 
   const removeFromCart = (product) => {
     setCart(cart.filter((item) => item.id !== product.id));
