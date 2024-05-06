@@ -10,6 +10,7 @@ export async function signUp(userData) {
   // Delegate the AJAX request to the users-api.js
   // module.
   const token = await usersAPI.signUp(userData);
+  console.log(token)
   localStorage.setItem('token', token);
   return getUser();
 }
