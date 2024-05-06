@@ -1,7 +1,7 @@
 // API modules are where the code lives to communicate
 // with the server via AJAX
 import sendRequest from './send-request';
-const BASE_URL = 'http://localhost:3001/api/users';
+const BASE_URL = 'http://localhost:4000/api/users';
 
 export function signUp(userData) {
   return sendRequest(`${BASE_URL}/signup`, 'POST', userData);
