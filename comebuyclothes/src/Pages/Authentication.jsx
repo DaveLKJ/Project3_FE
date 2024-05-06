@@ -1,16 +1,21 @@
-import SignIn from "../Components/SignIn"
-import SignUp from "../Components/SignUp"
+import React, { useState } from 'react';
+import SignIn from '../Components/SignIn';
+import SignUp from '../Components/SignUp';
 
-function Authentication(){
-    return(
-        <>
-        Authentication contain
+function Authentication() {
+  const [isSignIn, setIsSignIn] = useState(true);
 
-        <SignIn/>
-        <button> button to change to sign up</button>
-        <SignUp/>
-        </>
-    )
+  return (
+    <>
+      <div>
+        <h1>Authentication</h1>
+        {isSignIn ? <SignIn /> : <SignUp />}
+        <button onClick={() => setIsSignIn(!isSignIn)}>
+          {isSignIn ? 'Switch to Sign Up' : 'Switch to Sign In'}
+        </button>
+      </div>
+    </>
+  );
 }
-export default Authentication
-//should have, 'sign in' component, 'sign up' component 
+
+export default Authentication;
