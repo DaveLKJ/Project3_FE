@@ -1,8 +1,10 @@
 import { useState } from "react";
+import {login} from '../Utilities/users-service'
 
-function SignIn() {
+function SignIn(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {setUser} = props
 
   function handleEmail(evt) {
     setEmail(evt.target.value);
@@ -12,10 +14,22 @@ function SignIn() {
     setPassword(evt.target.value);
   }
 
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault(); // prevent the default form submission behavior
     // to remove console.log and to send the sign in information to backend using API (and verify, backend will do verification)
     console.log(`Email: ${email}, Password: ${password}`);
+    const payload = {
+        email: email,
+        password: password
+    }
+
+    try{
+        const user = await login(payload)
+        setUser(user)
+    }
+    catch (error){
+        console.log(error)
+    }
  
   }
 

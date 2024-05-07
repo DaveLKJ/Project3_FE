@@ -9,12 +9,13 @@ import { useState } from "react";
 import Favourites from './Pages/Favourites';
 import Profile from './Pages/Profile';
 import Stores from './Pages/Stores';
+import { getUser } from './Utilities/users-service';
 
 
 
 function App() {
 
-  const [user,setUser] = useState ({name: 'latte', email:'latte@gmail.com'}) //to have a function getUser to see if the person is logged in, tagged to backend
+  const [user,setUser] = useState (getUser()) //to have a function getUser to see if the person is logged in, tagged to backend
 
   const [cart, setCart] = useState([]);
 
@@ -58,7 +59,7 @@ function App() {
             </Routes>
         </Router>
       ):(
-        <Authentication/>
+        <Authentication setUser={setUser}/>
       )}
 
     </div>

@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { signUp } from "../Utilities/users-api"
+import { signUp } from "../Utilities/users-service"
 
-function SignUp(){
+function SignUp(props){
     const [name, setName] = useState('')
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const {setUser} = props
     
     function handleName(evt) {
         setName(evt.target.value)
@@ -23,15 +24,16 @@ function SignUp(){
             // to remove console.log and to send the sign up information to backend using SignUp API
             console.log(`Name: ${name}, Email: ${email}, Password: ${password}`);
             const payload = {
-                name: name,
+                username: name,
             email: email,
         password: password,}
         console.log(payload)
              try{
-                 await signUp(payload)
+                const user = await signUp(payload)
+                setUser(user)
              }
              catch(error){
-console.log(error)
+            console.log(error)
              }
            }
 
