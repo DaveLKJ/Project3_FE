@@ -10,7 +10,7 @@ import Favourites from './Pages/Favourites';
 import Profile from './Pages/Profile';
 import Stores from './Pages/Stores';
 import { getUser } from './Utilities/users-service';
-import Payment from './Pages/Payment'
+import Checkout from './Pages/Checkout'
 
 
 
@@ -57,7 +57,7 @@ function App() {
             <Route path='/Favourites' element={<Favourites favourites={favourites} addToCart={addToCart} removeFromFavourites={removeFromFavourites}/>}/>
             <Route path='/Profile' element={<Profile user={user}/>}/>
             <Route path='/Stores' element={<Stores/>}/>
-            <Route path='/Payment' element={<Payment cart={cart}/>}/>
+            <Route path='/Checkout' element={<Checkout cart={cart}/>}/>
             </Routes>
         </Router>
       ):(

@@ -21,7 +21,7 @@ function Cart(props) {
               <button onClick={() => removeFromCart(product)}>
               Remove from Cart
               </button>
-              <Link to='/Payment'>Proceed to checkout</Link>
+              <Link to='/Checkout'>Proceed to checkout</Link>
             </div>
           ))}
         </div>

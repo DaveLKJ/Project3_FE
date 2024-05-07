@@ -1,9 +1,9 @@
-function Payment (props){
+function Checkout (props){
 
     const {cart} = props
     return(
         <div>
-            You are seeing Payment Page
+            You are seeing Checkout Page
             {cart.map((item)=>{
                 return (
                     <div>
@@ -17,4 +17,4 @@ function Payment (props){
     )
 }
 
-export default Payment
+export default Checkout
