@@ -1,46 +1,57 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ListingItem from "../Components/ListingItem";
+import { getAllProducts } from "../Utilities/amalinacode";
+
 
 function DisplayListing(props) {
     const {addToCart, addToFavourites} = props
 
-    //     const [availClothes, setAvailClothes] = useState([])
-//     useEffect(()=>{
-// try {
-// const response = await getAllProducts()
-// setAvailClothes(response)
-// }
-// catch(error) {
-// console.log(error)
-// }
-//     },[])
+    const [availClothes, setAvailClothes] = useState([])
 
-  const [availClothes, setAvailClothes] = useState([
-    {
-        id: 1,
-      name: "Crop Tank Top",
-      price: 14.9,
-      color: ["blue", "green"],
-      imgUrl:
-        "https://www.halfphaselabel.com/cdn/shop/products/BF9I4729_1024x1024.jpg?v=1639675684",
-    },
-    {
-        id: 2,
-      name: "Cotton Short Sleeve T-Shirt",
-      price: 14.9,
-      color: ["yellow", "red"],
-      imgUrl:
-        "https://static.massimodutti.net/3/photos/2024/V/0/1/p/6802/901/704/6802901704_1_1_16.jpg?t=1704813553148&impolicy=massimodutti-itxmediumhigh&imformat=chrome&imwidth=500",
-    },
-    {
-        id: 3,
-      name: "Linen Short Sleeve T-Shirt",
-      price: 14.9,
-      color: ["blue"],
-      imgUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgVFhtCzhphgdWfqgDXUcYfsaZXyzoAv0lgPNwPJjOA&s",
-    },
-  ]);
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const response = await getAllProducts()
+          console.log(response)
+          setAvailClothes(response)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    
+      fetchData()
+    }, [])
+    
+    useEffect(() => {
+      console.log(availClothes)
+    }, [availClothes])
+
+//   const [availClothes, setAvailClothes] = useState([
+//     {
+//         id: 1,
+//       name: "Crop Tank Top",
+//       price: 14.9,
+//       color: ["blue", "green"],
+//       imgUrl:
+//         "https://www.halfphaselabel.com/cdn/shop/products/BF9I4729_1024x1024.jpg?v=1639675684",
+//     },
+//     {
+//         id: 2,
+//       name: "Cotton Short Sleeve T-Shirt",
+//       price: 14.9,
+//       color: ["yellow", "red"],
+//       imgUrl:
+//         "https://static.massimodutti.net/3/photos/2024/V/0/1/p/6802/901/704/6802901704_1_1_16.jpg?t=1704813553148&impolicy=massimodutti-itxmediumhigh&imformat=chrome&imwidth=500",
+//     },
+//     {
+//         id: 3,
+//       name: "Linen Short Sleeve T-Shirt",
+//       price: 14.9,
+//       color: ["blue"],
+//       imgUrl:
+//         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgVFhtCzhphgdWfqgDXUcYfsaZXyzoAv0lgPNwPJjOA&s",
+//     },
+//   ]);
 
   return (
     <div>

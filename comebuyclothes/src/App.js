@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
@@ -11,9 +11,10 @@ import Checkout from './Pages/Checkout';
 import Authentication from './Pages/Authentication';
 import { addToCart, updateCart, removeFromCart } from './Utilities/cartUtilities';
 import './App.css';
+import { getUser } from './Utilities/amalinacode';
 
 function App() {
-  const [user, setUser] = useState(1);
+  const [user, setUser] = useState(getUser());
   const [cart, setCart] = useState([]);
   const [favourites, setFavourites] = useState([]);
 

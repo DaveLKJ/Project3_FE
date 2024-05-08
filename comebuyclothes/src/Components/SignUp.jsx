@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { signUp } from "../Utilities/users-service"
+import { userSignup } from "../Utilities/amalinacode"
 
 function SignUp(props){
     const [name, setName] = useState('')
@@ -20,19 +20,17 @@ function SignUp(props){
         }
 
      async function handleSubmit(evt) {
-            evt.preventDefault(); // prevent the default form submission behavior
-            // to remove console.log and to send the sign up information to backend using SignUp API
-            console.log(`Name: ${name}, Email: ${email}, Password: ${password}`);
+            evt.preventDefault(); 
             const payload = {
                 username: name,
             email: email,
         password: password,}
-        console.log(payload)
              try{
-                const user = await signUp(payload)
+                const response = await userSignup(payload)
+                const user = response.token
                 setUser(user)
              }
-             catch(error){
+             catch(error){  
             console.log(error)
              }
            }
