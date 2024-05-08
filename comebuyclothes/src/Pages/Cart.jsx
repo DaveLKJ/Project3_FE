@@ -7,6 +7,19 @@ function Cart(props) {
 
   const [updatedCart, setUpdatedCart] = useState(cart);
 
+  // const [cartFromDb, setCartFromDb] = useState([])
+  // useEffect(()=>{
+  //   const userid I need to get the User
+  //   try{
+  //     const response = await getCart(userid)
+  //     setCartFromDb(response)
+  //   }
+  //   catch(error){
+  //     console.log(error)
+  //   }
+  // }
+  // )
+
   useEffect(() => {
     setUpdatedCart(cart);
   }, [cart]);

@@ -6,9 +6,7 @@ function ListingItem(props) {
 
   return (
     <div>
-      <Link to={`/clothes/${clothes.id}`}>
         <img src={clothes.imgUrl} alt={clothes.name} />
-      </Link>
       <h3>{clothes.name}</h3>
       <p>${clothes.price}</p>
      
