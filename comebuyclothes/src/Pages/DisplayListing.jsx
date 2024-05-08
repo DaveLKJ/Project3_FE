@@ -3,6 +3,18 @@ import ListingItem from "../Components/ListingItem";
 
 function DisplayListing(props) {
     const {addToCart, addToFavourites} = props
+
+    //     const [availClothes, setAvailClothes] = useState([])
+//     useEffect(()=>{
+// try {
+// const response = await getAllProducts()
+// setAvailClothes(response)
+// }
+// catch(error) {
+// console.log(error)
+// }
+//     },[])
+
   const [availClothes, setAvailClothes] = useState([
     {
         id: 1,
