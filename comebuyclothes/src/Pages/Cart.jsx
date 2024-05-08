@@ -1,5 +1,6 @@
 import React from 'react';
 import ListingItem from "../Components/ListingItem";
+import { Link } from 'react-router-dom';
 
 function Cart(props) {
   const { cart, removeFromCart } = props;
@@ -10,6 +11,7 @@ function Cart(props) {
 
   return (
     <div>
+        
       {cart.length > 0 ? (
         <div>
           {cart.map((product) => (
@@ -19,6 +21,7 @@ function Cart(props) {
               <button onClick={() => removeFromCart(product)}>
               Remove from Cart
               </button>
+              <Link to='/Checkout'>Proceed to checkout</Link>
             </div>
           ))}
         </div>

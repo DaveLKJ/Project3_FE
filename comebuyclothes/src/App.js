@@ -10,12 +10,13 @@ import Favourites from './Pages/Favourites';
 import Profile from './Pages/Profile';
 import Stores from './Pages/Stores';
 import { getUser } from './Utilities/users-service';
+import Checkout from './Pages/Checkout'
 
 
 
 function App() {
 
-  const [user,setUser] = useState (getUser()) //to have a function getUser to see if the person is logged in, tagged to backend
+  const [user,setUser] = useState (1) //to have a function getUser to see if the person is logged in, tagged to backend
 
   const [cart, setCart] = useState([]);
 
@@ -56,6 +57,7 @@ function App() {
             <Route path='/Favourites' element={<Favourites favourites={favourites} addToCart={addToCart} removeFromFavourites={removeFromFavourites}/>}/>
             <Route path='/Profile' element={<Profile user={user}/>}/>
             <Route path='/Stores' element={<Stores/>}/>
+            <Route path='/Checkout' element={<Checkout cart={cart}/>}/>
             </Routes>
         </Router>
       ):(
