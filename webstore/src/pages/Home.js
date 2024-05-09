@@ -3,7 +3,7 @@ import { Container, Card } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import ProductList from "../components/ProductList";
 
-const Home = () => {      
+const Home = () => {
   return (
     <div>
       <Card
@@ -21,7 +21,9 @@ const Home = () => {
       >
         <Container>
           <Card.Body>
-            <Card.Title>Welcome to our Ecommerce Store</Card.Title>
+            <Card.Title>
+              Welcome to our Ecommerce Store
+            </Card.Title>
             <Card.Text>
               Discover the latest trends and shop your favorite products!
             </Card.Text>
