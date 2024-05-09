@@ -6,7 +6,7 @@ function ListingItem(props) {
 
   return (
     <div>
-        <img src={clothes.imgUrl} alt={clothes.name} />
+        <img src={clothes.images[0]} alt={clothes.name} />
       <h3>{clothes.name}</h3>
       <p>${clothes.price}</p>
      

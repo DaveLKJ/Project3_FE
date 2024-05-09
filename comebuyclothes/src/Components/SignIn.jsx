@@ -1,5 +1,6 @@
 import { useState } from "react";
-import {login} from '../Utilities/users-service'
+import { userLogin } from "../Utilities/amalinacode";
+
 
 function SignIn(props) {
   const [email, setEmail] = useState("");
@@ -15,16 +16,15 @@ function SignIn(props) {
   }
 
   async function handleSubmit(evt) {
-    evt.preventDefault(); // prevent the default form submission behavior
-    // to remove console.log and to send the sign in information to backend using API (and verify, backend will do verification)
-    console.log(`Email: ${email}, Password: ${password}`);
-    const payload = {
+    evt.preventDefault(); 
+    const userData = {
         email: email,
         password: password
     }
 
     try{
-        const user = await login(payload)
+        const response = await userLogin(userData)
+       const user = response.token
         setUser(user)
     }
     catch (error){
